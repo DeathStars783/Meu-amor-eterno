@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Gabriel ❤️ Edilene</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffe6e6, #ffd6f0);
+      font-family: 'Roboto', sans-serif;
+      color: #8b0000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    header {
+      text-align: center;
+      margin: 40px 20px 10px 20px;
+    }
+
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5em;
+      margin: 0;
+      color: #c2185b;
+    }
+
+    header p.date {
+      font-size: 1.3em;
+      margin-top: 8px;
+      font-weight: bold;
+      color: #d81b60;
+    }
+
+    .message {
+      margin: 20px auto 30px auto;
+      max-width: 600px;
+      font-size: 1.5em;
+      font-style: italic;
+      text-align: center;
+      color: #a52a2a;
+      padding: 0 10px;
+      line-height: 1.4;
+    }
+
+    .counter {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #b71c1c;
+    }
+
+    .heart {
+      font-size: 3em;
+      animation: pulse 2s infinite;
+      margin-bottom: 30px;
+    }
+
+    footer {
+      margin: 20px;
+      font-size: 1em;
+      color: #880e4f;
+    }
+
+    button {
+      background-color: #d81b60;
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      font-size: 1.2em;
+      border-radius: 25px;
+      cursor: pointer;
+      margin: 30px 0;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ad1457;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    /* Emojis decorativos flutuantes */
+    .emoji {
+      position: absolute;
+      font-size: 2em;
+      opacity: 0.2;
+      animation: float 12s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-10vh) rotate(360deg); }
+    }
+
+    .emoji:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .emoji:nth-child(2) { left: 30%; animation-delay: 2s; }
+    .emoji:nth-child(3) { left: 50%; animation-delay: 4s; }
+    .emoji:nth-child(4) { left: 70%; animation-delay: 6s; }
+    .emoji:nth-child(5) { left: 85%; animation-delay: 8s; }
+
+    /* Pop-up */
+    #popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(255, 182, 193, 0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2em;
+      color: #b71c1c;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    #popup button {
+      margin-top: 25px;
+      font-size: 1.5em;
+      background-color: #c2185b;
+      padding: 15px 40px;
+      border-radius: 30px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #popup button:hover {
+      background-color: #880e4f;
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+
+      header p.date {
+        font-size: 1.1em;
+      }
+
+      .message {
+        font-size: 1.2em;
+        max-width: 90%;
+      }
+
+      .counter {
+        font-size: 1.5em;
+      }
+
+      .heart {
+        font-size: 2.5em;
+      }
+
+      button {
+        font-size: 1em;
+        padding: 10px 25px;
+      }
+
+      #popup {
+        font-size: 1.5em;
+      }
+
+      #popup button {
+        font-size: 1.2em;
+        padding: 12px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Pop-up para ativar a música -->
+  <div id="popup">
+    <div>Gabriel e Edilene, toquem para liberar a magia do amor! 💖</div>
+    <button id="startMusicBtn">🎵 Tocar música</button>
+  </div>
+
+  <!-- Emojis decorativos -->
+  <div class="emoji">💖</div>
+  <div class="emoji">💘</div>
+  <div class="emoji">🌹</div>
+  <div class="emoji">💑</div>
+  <div class="emoji">✨</div>
+
+  <header>
+    <h1>Gabriel ❤️ Edilene</h1>
+    <p class="date">Desde 23/05/2024</p>
+  </header>
+
+  <div class="counter" id="daysCounter"></div>
+
+  <div class="message">
+    “Desde 23/05/2024, cada dia ao seu lado é um presente que ilumina minha vida.<br />
+    Seu sorriso é o sol que aquece meu coração,<br />
+    e seu amor é a melodia que dá sentido aos meus dias.<br />
+    Com você, aprendi que o verdadeiro amor transforma, fortalece e nunca acaba.<br />
+    Obrigado por ser minha inspiração, minha alegria e meu eterno amor. 💞”
+  </div>
+
+  <div class="heart">❤️</div>
+
+  <button id="playPauseBtn" style="display:none;">⏸️ Pausar música</button>
+
+  <audio id="backgroundMusic" loop>
+    <source src="https://media.vocaroo.com/mp3/1PpdvKlb0u0X" type="audio/mpeg" />
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <footer>Feito com amor por Lyra 💫</footer>
+
+  <script>
+    // Calcula os dias desde 23/05/2024
+    function calculateDays() {
+      const startDate = new Date(2024, 4, 23);
+      const today = new Date();
+      const diffTime = today - startDate;
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      return diffDays;
+    }
+
+    document.getElementById('daysCounter').textContent =
+      `💘 Já são ${calculateDays()} dias juntos! 💘`;
+
+    const music = document.getElementById('backgroundMusic');
+    const btn = document.getElementById('playPauseBtn');
+    const popup = document.getElementById('popup');
+    const startBtn = document.getElementById('startMusicBtn');
+
+    startBtn.addEventListener('click', () => {
+      music.play();
+      btn.style.display = 'inline-block';
+      popup.style.display = 'none';
+      btn.textContent = '⏸️ Pausar música';
+    });
+
+    btn.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = '⏸️ Pausar música';
+      } else {
+        music.pause();
+        btn.textContent = '▶️ Tocar nossa música';
+      }
+    });
+  </script>
+</body>
+</html>
